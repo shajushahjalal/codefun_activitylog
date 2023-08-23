@@ -6,10 +6,7 @@
 # Installation Process
 
 * ```composer require codefun/activitylog```
-
-# Run this migration command 
 * ```php artisan migrate```
-
 * Optionally use: ```php artisan vendor:publish --tag=codefun_activity``` 
 
 ## Before Laravel 5.7 
