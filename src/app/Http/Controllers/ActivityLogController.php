@@ -32,9 +32,9 @@ class ActivityLogController extends Controller
      * View Activity Log Details
      */
     public function showActivity(Request $request){
-        $activity = ActivityLog::findOrFail($request->id);
+        $activity = ActivityLog::findOrFail($request->uuid);
         $is_change = false;
-        
+
         $changes_val = [];
         if( is_array($activity->old_data) && count($activity->old_data) > 0 ){
             foreach($activity->old_data as $key => $value){

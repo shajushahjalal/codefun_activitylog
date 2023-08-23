@@ -36,7 +36,7 @@
                                         {{ Carbon\Carbon::parse($activity->created_at)->format("d-M, Y h:i A") }}
                                     </td>
                                     <td>
-                                        <a class="btn btn-info btn-sm" href="{{ route('activity_log.view', [$activity->id]) }}">
+                                        <a class="btn btn-info btn-sm" href="{{ route('activity_log.view', [$activity->uuid]) }}">
                                             View
                                         </a>
                                     </td>
