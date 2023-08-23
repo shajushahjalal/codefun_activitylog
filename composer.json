@@ -12,7 +12,16 @@
             "CodeFun\\Activitylog\\": "src/"
         }
     },
-    
+    "extra" : {
+        "laravel" : {
+            "providers": [
+                "CodeFun\\Activitylog\\App\\Providers\\ActivityServiceProvider"
+            ],
+            "aliases": {
+                "Activity": "CodeFun\\Activitylog\\Facade\\Activity"
+            }
+        } 
+    },
     "authors": [
         {
             "name": "Shahjalal",
