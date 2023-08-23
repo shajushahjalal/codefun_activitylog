@@ -32,7 +32,7 @@ class ActivityLogController extends Controller
      * View Activity Log Details
      */
     public function showActivity(Request $request){
-        $activity = ActivityLog::findOrFail($request->uuid);
+        $activity = ActivityLog::where("uuid", $request->uuid)->firstOrFail();
         $is_change = false;
 
         $changes_val = [];
