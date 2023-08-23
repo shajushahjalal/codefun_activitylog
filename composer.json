@@ -28,7 +28,7 @@
             "email": "shahjalal.swe@gmail.com"
         }
     ],
-    "minimum-stability": "dev-master",
+    "minimum-stability": "dev",
     "prefer-stable": true
     
 }
