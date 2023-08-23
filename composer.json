@@ -22,7 +22,7 @@
             }
         } 
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "authors": [
         {
             "name": "Shahjalal",
