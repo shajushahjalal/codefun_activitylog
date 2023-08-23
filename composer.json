@@ -15,10 +15,10 @@
     "extra" : {
         "laravel" : {
             "providers": [
-                "CodeFun\\Activitylog\\App\\Providers"
+                "CodeFun\\Activitylog\\App\\Providers\\ActivityServiceProvider"
             ],
             "aliases": {
-                "Activity": "CodeFun\\Activitylog\\Facade"
+                "Activity": "CodeFun\\Activitylog\\Facade\\Activity"
             }
         } 
     },
