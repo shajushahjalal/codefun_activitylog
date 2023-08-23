@@ -22,12 +22,13 @@
             }
         } 
     },
-    "minimum-stability": "stable",
     "authors": [
         {
             "name": "Shahjalal",
             "email": "shahjalal.swe@gmail.com"
         }
-    ]
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true
     
 }
