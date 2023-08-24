@@ -37,25 +37,27 @@ trait DetectChange{
      * Detecact Change and Trigger Target Changes method.
      */
     private function detectChange(){
+        
         try{
             if( !in_array("created", $this->ignore_changes) ){
                 self::created(function($model){
                     $this->getModelData($model, "Created")->storeActivityLog();
                 });
             }
-            elseif( !in_array("updated", $this->ignore_changes) ){
+            if( !in_array("updated", $this->ignore_changes) ){
                 self::updated(function($model){ 
                     $this->getModelData($model, "Updated")->storeActivityLog();
                 });
             }
-            elseif( !in_array("deleted", $this->ignore_changes) ){
+            if( !in_array("deleted", $this->ignore_changes) ){
                 self::deleted(function($model){ 
-                    $this->getModelData($model)->storeActivityLog();
+                    // dd(3);
+                    $this->getModelData($model, "Deleted")->storeActivityLog();
                 });
             }else{
                 //
             }
-
+            // dd(0);
         }catch(Exception $e){
             $this->errorLog($e);
         }
@@ -65,7 +67,7 @@ trait DetectChange{
      * Get Exception Message and Rewrite Into Log File
      */
     private function errorLog($e){
-        Log::channel('activitylog')->info(
+        Log::info(
             $e->getMessage() . ' On file ' . $e->getFile() . ':'.$e->getLine()
         );
     }
@@ -86,6 +88,7 @@ trait DetectChange{
         }
         $this->updated_data = $model->toArray();
         $this->event_name = $event_name;
+        
         return $this;
     }
     
