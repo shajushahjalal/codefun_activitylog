@@ -52,4 +52,14 @@ class AnyModel extends Model
 }
 ```
 
+## How to Show Activity log Via Web Route and API Route
+
+# For API
+* http:://base_url/api/activity-log/list
+* http:://base_url/api/activity-log/view/{uuid}
+
+# For Web 
+* http:://base_url/activity-log
+
+
 
