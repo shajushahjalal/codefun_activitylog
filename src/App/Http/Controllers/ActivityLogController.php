@@ -35,7 +35,7 @@ class ActivityLogController extends Controller
      */
     public function activityLogList(Request $request) {
         try{
-            $activities = ActivityLog::orderBy("id", "DESC")->paginate($request->page_size ?? 25);
+            $activities = ActivityLog::with("causer", "tableable")->orderBy("id", "DESC")->paginate($request->page_size ?? 25);
             return response([
                 "status"        => true,
                 "message"       => "Activity list loaded successfully",
@@ -80,11 +80,12 @@ class ActivityLogController extends Controller
     }
 
     /**
-     * Activity Details 
+     * Activity Details  Via API
      */
     public function showActivityDetails(Request $request){
         try{
-            $activity = ActivityLog::where("uuid", $request->uuid)->firstOrFail();
+            $activity = ActivityLog::with("causer", "tableable")
+                ->where("uuid", $request->uuid)->firstOrFail();
             $is_change = false;
     
             $changes_val = [];
