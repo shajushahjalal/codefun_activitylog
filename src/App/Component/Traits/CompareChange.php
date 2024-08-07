@@ -11,6 +11,9 @@ trait CompareChange{
     */
     public function difference($old_data, $new_data){
         try{
+            $old_data = $this->arrayToString($old_data, ", ");
+            $new_data = $this->arrayToString($new_data, ", ");
+            
             $from_start = strspn($old_data ^ $new_data, "\0");    
             $from_end = strspn(strrev($old_data) ^ strrev($new_data), "\0");
         
@@ -26,5 +29,13 @@ trait CompareChange{
         }catch(Exception $e){
             return "<ins style='background-color:#ccffcc'>$new_data</ins>";
         }
+    }
+
+    protected function arrayToString($data, $seperator = ",",){
+        if( !is_array($data) ){
+            return $data;
+        }
+        $data = implode($seperator, $data);
+        return $this->arrayToString($data);
     }
 }

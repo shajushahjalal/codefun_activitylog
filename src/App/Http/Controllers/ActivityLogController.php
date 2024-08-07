@@ -87,7 +87,6 @@ class ActivityLogController extends Controller
             $activity = ActivityLog::with("causer", "tableable")
                 ->where("uuid", $request->uuid)->firstOrFail();
             $is_change = false;
-    
             $changes_val = [];
             if( is_array($activity->old_data) && count($activity->old_data) > 0 ){
                 foreach($activity->old_data as $key => $value){
